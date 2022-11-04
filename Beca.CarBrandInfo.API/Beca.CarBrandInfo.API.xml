@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Beca.CarBrandInfo.API</name>
+    </assembly>
+    <members>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get all Brands with pagination
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands(System.Int32,System.Boolean)">
+            <summary>
+            Get one specific Brand.
+            </summary>
+            <param name="id"></param>
+            <param name="includeModels"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.BrandDto.Id">
+            <summary>
+            The Id is required to identify the Brand
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.BrandDto.Name">
+            <summary>
+            The name of the Brand
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.BrandDto.Models">
+            <summary>
+            Collection of Models associated with a Brand
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.BrandWithoutModelsDto.Id">
+            <summary>
+            The id of the city
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.BrandWithoutModelsDto.Name">
+            <summary>
+            The name of the city
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelForCreationDto.Name">
+            <summary>
+            The Name of the new Model
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelForCreationDto.Description">
+            <summary>
+            This is not required. Include a description of this model.
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelForUpdateDto.Name">
+            <summary>
+            This is the name of the Brand
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelForUpdateDto.Description">
+            <summary>
+            This is not required. Update the description of this model.
+            </summary>
+        </member>
+    </members>
+</doc>

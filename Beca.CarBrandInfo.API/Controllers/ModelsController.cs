@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Beca.CarBrandInfo.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/brands/{brandId}/models")]
     [ApiController]
     public class ModelsController : ControllerBase
     {
@@ -25,6 +25,24 @@ namespace Beca.CarBrandInfo.API.Controllers
                 throw new ArgumentNullException(nameof(brandInfoRepository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ModelDto>>> GetModels(
+            int brandId)
+        {
+
+            if (!await _brandInfoRepository.BrandExistsAsync(brandId))
+            {
+                _logger.LogInformation(
+                    $"Brand with id {brandId} wasn't found when accessing models.");
+                return NotFound();
+            }
+
+            var modelsForBrand = await _brandInfoRepository.GetModelsForBrandAsync(brandId);
+
+            return Ok(_mapper.Map<IEnumerable<ModelDto>>(modelsForBrand));
         }
 
         [HttpGet("{modelid}", Name = "GetModel")]
@@ -100,7 +118,7 @@ namespace Beca.CarBrandInfo.API.Controllers
         }
 
 
-        [HttpPatch("{modelId}")]
+        [HttpPatch("{modelid}")]
         public async Task<ActionResult> PartiallyUpdateModel(
             int brandId, int modelId,
             JsonPatchDocument<ModelForUpdateDto> patchDocument)
@@ -138,7 +156,7 @@ namespace Beca.CarBrandInfo.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{modelId}")]
+        [HttpDelete("{modelid}")]
         public async Task<ActionResult> DeleteModel(
             int brandId, int modelId)
         {

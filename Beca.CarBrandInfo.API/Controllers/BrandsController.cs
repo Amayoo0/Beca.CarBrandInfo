@@ -7,13 +7,24 @@ using System.Text.Json;
 
 namespace Beca.CarBrandInfo.API.Controllers
 {
-    [Route("api/brands")]
     [ApiController]
+    [Route("api/brands")]
+    
     public class BrandsController : ControllerBase
     {
         private readonly IBrandInfoRepository _brandInfoRepository;
         private readonly IMapper _mapper;
         const int maxBrandsPageSize = 20;
+
+
+        public BrandsController(IBrandInfoRepository brandInfoRepository,
+    IMapper mapper)
+        {
+            _brandInfoRepository = brandInfoRepository ??
+                throw new ArgumentNullException(nameof(brandInfoRepository));
+            _mapper = mapper ??
+                throw new ArgumentNullException(nameof(mapper));
+        }
 
         /// <summary>
         /// Get all Brands with pagination
@@ -44,9 +55,9 @@ namespace Beca.CarBrandInfo.API.Controllers
         /// <param name="includeModels"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBrand(int id, bool includeModels = false)
+        public async Task<IActionResult> GetBrands(int id, bool includeModels = false)
         {
-            var brand = await _brandInfoRepository.GetBrandsAsync(id, includeModels);
+            var brand = await _brandInfoRepository.GetBrandAsync(id, includeModels);
             if(brand == null)
             {
                 return NotFound();

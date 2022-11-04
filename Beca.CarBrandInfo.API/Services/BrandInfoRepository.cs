@@ -76,8 +76,7 @@ namespace Beca.CarBrandInfo.API.Services
                .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Model>> GetModelsForBrandAsync(
-            int brandId)
+        public async Task<IEnumerable<Model>> GetModelsForBrandAsync(int brandId)
         {
             return await _context.Models
                            .Where(p => p.BrandId == brandId).ToListAsync();

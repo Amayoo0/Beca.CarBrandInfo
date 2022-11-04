@@ -12,9 +12,5 @@
         /// </summary>
         public string Name { get; set; } = string.Empty;
 
-        /// <summary>
-        /// The description of the city
-        /// </summary>
-        public string? Description { get; set; }
     }
 }

@@ -7,9 +7,9 @@ namespace Beca.CarBrandInfo.API.Services
         Task<IEnumerable<Brand>> GetBrandsAsync();
         Task<(IEnumerable<Brand>, PaginationMetadata)> GetBrandsAsync(
             string? name, string? searchQuery, int pageNumber, int pageSize);
-        Task<Brand?> GetBrandsAsync(int BrandId, bool includeModels);
+        Task<Brand?> GetBrandAsync(int BrandId, bool includeModels);
         Task<bool> BrandExistsAsync(int BrandId);
-        Task<IEnumerable<Model>> GetModelForBrandAsync(int BrandId);
+        Task<IEnumerable<Model>> GetModelsForBrandAsync(int BrandId);
         Task<Model?> GetModelForBrandAsync(int BrandId,
             int modelId);
         Task AddModelForBrandAsync(int BrandId, Model model);
