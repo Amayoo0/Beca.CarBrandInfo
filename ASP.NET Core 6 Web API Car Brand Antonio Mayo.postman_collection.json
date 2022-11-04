@@ -1,0 +1,622 @@
+{
+	"info": {
+		"_postman_id": "08b2974b-0793-4270-a9d8-9e10abb72736",
+		"name": "ASP.NET Core 6 Web API Car Brand Antonio Mayo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24201280"
+	},
+	"item": [
+		{
+			"name": "GET Brands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Brand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Models (unexisting Brand)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/4/model",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"4",
+						"model"
+					]
+				},
+				"description": "Should return 404 NotFound"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Model",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Model (unexisting Brand)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/4/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"4",
+						"models",
+						"1"
+					]
+				},
+				"description": "Should return 404 NotFound"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Model (unexisting Model)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/4/models/10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"4",
+						"models",
+						"10"
+					]
+				},
+				"description": "Should return 404 NotFound"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Cities (XML)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Model",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Kuga\",\n    \"description\": \"The Ford Kuga is a compact crossover SUV (C-segment) manufactured by Ford since 2008.\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Model (can't deserialize)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/3/models",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"3",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Model (missing name, long description)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"invalidProperty\": 1,\n    \"description\": \"In South Africa, onwards from 2015, numerous Ford Kugas of the 1.6 L EcoBoost variant[19][20] caught fire.[21][22][23][24] In December 2016, Ford South Africa requested that all local Kuga owners take their vehicles in for a safety inspection.[25] Even after one owner took her vehicle to a dealership, whose mechanics checked it and assured the owner that the vehicle was safe, the car still caught fire the next day. Another owner was assured by a dealership that his vehicle would be safe as long as the coolant level was correct, but his Kuga burned a few days later.[27] One driver is reported to have died as a result of a fire in his Kuga in December 2015.[28] His vehicle allegedly exhibited several faults, but was checked by Ford and passed as safe shortly before the fire.[29][30] Subsequently, further reports were made of fires and other failures occurring after safety checks at Ford facilities.As of 16 January 2017, at least 46 Kugas in South Africa had been destroyed by fire,[19][31][32][33] and Ford South Africa had confirmed that a total of 39 incidents had been reported to the company.[20] By 18 January 2017, the number of incidents had reached 50, with 13 in 2017 alone.[34] Between November 2015 and December 2017, 72 vehicles suffered fires.[24] By 4 February 2019, there had been more than 80 incidents,[35] with one as recently as 1 February 2019. On 16 January 2017, Ford South Africa and South Africa's National Consumer Commission[37] held a media briefing to announce a safety recall of the affected Kuga model, affecting 4556 1.6 L EcoBoost models that were built between December 2012 and February 2014.[19][31][38] The NCC said that it had decided to exercise its authority to authorize a recall on safety grounds, and had then been informed that Ford South Africa had decided to implement a recall.[20] Between January 2017 and January 2018, Ford implemented three safety recalls on the vehicles. Ford South Africa identified the mechanism leading to the majority of fires as overheating caused by a lack of coolant circulation, which could lead to cracking of the cylinder head, resulting in an oil leak and subsequent fire in the engine compartment.[19][20][31] The proposed solution would be first to replace and check affected components and systems, and later to improve the cooling and warning systems. As of January 2018, six Kugas had caught fire, or suffered engine and electronic failures, after undergoing recall.[24] In January 2017, Ford South Africa said that it was not aware of any injuries caused by the engine fires, and claimed that the fatal incident was not the result of an engine fire.[19][20][39] The causes of both the fatal fire and others are disputed. On 17 January 2017, video footage was released that allegedly recorded part of the fatal fire.[42][43] In November 2018, family of the deceased owner claimed that Ford South Africa had offered them a settlement conditional on accepting that he had died from a gunshot wound.[44] By this time, the family was represented by Advocate Gerrie Nel of AfriForum.Some owners of affected vehicles, family of the deceased owner, and other parties have criticized the conduct of Ford South Africa.[46] A commissioner of the National Consumer Commission (NCC) said that the matter should have been addressed sooner in view of the risk both to those travelling in affected Kugas, and to others.[31] In court papers related to the fatal fire, the South African Police Service has alleged that Ford South Africa may have failed to comply with its obligations under South African consumer protection law, and obstructed the police investigation. On 17 January 2017, family of the deceased owner held a media briefing together with an attorney, and announced plans to initiate a class-action lawsuit against Ford South Africa.[50][30][29] Owners of models not included in the recall, but also damaged by fires, have expressed interest in joining such a suit.[41] As of January 2018, Ford South Africa was offering affected owners a settlement, that included a non-disclosure agreement, and was criticized both as inadequate and as an attempt to forestall the class action.\"\n}\n"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/3/models",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"3",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Model",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated - Kuga\",\n    \"description\": \"Updated - Manufactured by Ford since 2008.\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Model (no description)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated again - Central Park\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber}}/api/cities/1/pointsofinterest/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Model",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Replaced - Kuga\"\n    }\n]"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Model (update multiple)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/name\",\n      \"value\": \"Updated - Fiesta\"\n    },\n    {\n      \"op\": \"replace\",\n      \"path\": \"/description\",\n      \"value\": \"Updated - Manufactured since 1976 to 2022. This production has stopped recently\"\n    }\n]"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Model (invalid property)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"op\": \"replace\",\n      \"path\": \"/invalidproperty\",\n      \"value\": \"Updated - Central Park\"\n    }\n]"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Model (remove name)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"op\": \"remove\",\n      \"path\": \"/name\"\n    }\n]"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Models",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands/1/models/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands",
+						"1",
+						"models",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Brands, filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands?name=Ford",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ford"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Brands, searched",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands?searchQuery=the",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "the"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Brands, filtered, searched",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands?name=Antwerp&searchQuery=the",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Antwerp"
+						},
+						{
+							"key": "searchQuery",
+							"value": "the"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Brands, paged",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:{{portNumber2}}/api/brands?pageSize=1&pageNumber=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber2}}",
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "pageNumber",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "portNumber",
+			"value": "7273"
+		}
+	]
+}
