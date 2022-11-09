@@ -24,6 +24,55 @@
             <param name="includeModels"></param>
             <returns></returns>
         </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.GetModels(System.Int32)">
+            <summary>
+            Get all models in the repository
+            </summary>
+            <param name="brandId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.GetModel(System.Int32,System.Int32)">
+            <summary>
+            Get model for specific brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.CreateModel(System.Int32,Beca.CarBrandInfo.API.Models.ModelForCreationDto)">
+            <summary>
+            Create a new Model of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.UpdateModel(System.Int32,System.Int32,Beca.CarBrandInfo.API.Models.ModelForUpdateDto)">
+            <summary>
+            Update modelId of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.PartiallyUpdateModel(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Beca.CarBrandInfo.API.Models.ModelForUpdateDto})">
+            <summary>
+            Update some field of Model
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <param name="patchDocument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.DeleteModel(System.Int32,System.Int32)">
+            <summary>
+            Delete modelId of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <returns></returns>
+        </member>
         <member name="P:Beca.CarBrandInfo.API.Models.BrandDto.Id">
             <summary>
             The Id is required to identify the Brand

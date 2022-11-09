@@ -5,6 +5,7 @@ using Beca.CarBrandInfo.API.Models;
 using Beca.CarBrandInfo.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 
 
@@ -17,6 +18,7 @@ namespace Beca.CarBrandInfo.API.Test
 
         public ModelsControllerTests()
         {
+            var loggerMock = new Mock<ILogger<ModelsController>>();
             var brandInfoRepositoryMock = new Mock<IBrandInfoRepository>();
             brandInfoRepositoryMock.Setup(m => m.GetBrandsAsync())
                 .ReturnsAsync(new List<Brand>()
@@ -67,7 +69,7 @@ namespace Beca.CarBrandInfo.API.Test
             });
             var mapper = new Mapper(mapperConfig);
 
-            _modelsController = new ModelsController(
+            _modelsController = new ModelsController(loggerMock.Object,
                 brandInfoRepositoryMock.Object, mapper);
 
             _httpContext = new DefaultHttpContext();
