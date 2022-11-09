@@ -10,6 +10,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands">
+            <summary>
+            Get all brands without any parameters
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands(System.Int32,System.Boolean)">
             <summary>
             Get one specific Brand.
@@ -41,6 +47,21 @@
         <member name="P:Beca.CarBrandInfo.API.Models.BrandWithoutModelsDto.Name">
             <summary>
             The name of the city
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Id">
+            <summary>
+            Primary Key
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Name">
+            <summary>
+            Model Name
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Description">
+            <summary>
+            A simply description of the Model
             </summary>
         </member>
         <member name="P:Beca.CarBrandInfo.API.Models.ModelForCreationDto.Name">

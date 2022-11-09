@@ -11,16 +11,16 @@ namespace Beca.CarBrandInfo.API.Controllers
     [ApiController]
     public class ModelsController : ControllerBase
     {
-        private readonly ILogger<ModelsController> _logger;
+        //private readonly ILogger<ModelsController> _logger;
         private readonly IBrandInfoRepository _brandInfoRepository;
         private readonly IMapper _mapper;
 
-        public ModelsController(ILogger<ModelsController> logger,
+        public ModelsController(/*ILogger<ModelsController> logger,*/
             IBrandInfoRepository brandInfoRepository,
             IMapper mapper)
         {
-            _logger = logger ??
-                throw new ArgumentNullException(nameof(logger));
+            //_logger = logger ??
+            //    throw new ArgumentNullException(nameof(logger));
             _brandInfoRepository = brandInfoRepository ??
                 throw new ArgumentNullException(nameof(brandInfoRepository));
             _mapper = mapper ??
@@ -32,11 +32,10 @@ namespace Beca.CarBrandInfo.API.Controllers
         public async Task<ActionResult<IEnumerable<ModelDto>>> GetModels(
             int brandId)
         {
-
             if (!await _brandInfoRepository.BrandExistsAsync(brandId))
             {
-                _logger.LogInformation(
-                    $"Brand with id {brandId} wasn't found when accessing models.");
+                //_logger.LogInformation(
+                //    $"Brand with id {brandId} wasn't found when accessing models.");
                 return NotFound();
             }
 
