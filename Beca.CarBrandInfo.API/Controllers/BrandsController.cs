@@ -47,6 +47,23 @@ namespace Beca.CarBrandInfo.API.Controllers
 
             return Ok(_mapper.Map<IEnumerable<BrandWithoutModelsDto>>(brandEntities));
         }
+        /// <summary>
+        /// Get all brands without any parameters
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("withoutParameters")]
+        public async Task<ActionResult<IEnumerable<BrandDto>>> GetBrands()
+        {
+            var brands = await _brandInfoRepository.GetBrandsAsync();
+            if( brands == null)
+            {
+                return NotFound();
+            }
+
+            var brandDto = _mapper.Map<IEnumerable<BrandDto>>(brands);
+
+            return Ok(brandDto);
+        }
 
         /// <summary>
         /// Get one specific Brand.

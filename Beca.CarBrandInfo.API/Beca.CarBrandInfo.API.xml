@@ -10,12 +10,67 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands">
+            <summary>
+            Get all brands without any parameters
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Beca.CarBrandInfo.API.Controllers.BrandsController.GetBrands(System.Int32,System.Boolean)">
             <summary>
             Get one specific Brand.
             </summary>
             <param name="id"></param>
             <param name="includeModels"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.GetModels(System.Int32)">
+            <summary>
+            Get all models in the repository
+            </summary>
+            <param name="brandId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.GetModel(System.Int32,System.Int32)">
+            <summary>
+            Get model for specific brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.CreateModel(System.Int32,Beca.CarBrandInfo.API.Models.ModelForCreationDto)">
+            <summary>
+            Create a new Model of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.UpdateModel(System.Int32,System.Int32,Beca.CarBrandInfo.API.Models.ModelForUpdateDto)">
+            <summary>
+            Update modelId of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.PartiallyUpdateModel(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Beca.CarBrandInfo.API.Models.ModelForUpdateDto})">
+            <summary>
+            Update some field of Model
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
+            <param name="patchDocument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Beca.CarBrandInfo.API.Controllers.ModelsController.DeleteModel(System.Int32,System.Int32)">
+            <summary>
+            Delete modelId of brandId
+            </summary>
+            <param name="brandId"></param>
+            <param name="modelId"></param>
             <returns></returns>
         </member>
         <member name="P:Beca.CarBrandInfo.API.Models.BrandDto.Id">
@@ -41,6 +96,21 @@
         <member name="P:Beca.CarBrandInfo.API.Models.BrandWithoutModelsDto.Name">
             <summary>
             The name of the city
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Id">
+            <summary>
+            Primary Key
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Name">
+            <summary>
+            Model Name
+            </summary>
+        </member>
+        <member name="P:Beca.CarBrandInfo.API.Models.ModelDto.Description">
+            <summary>
+            A simply description of the Model
             </summary>
         </member>
         <member name="P:Beca.CarBrandInfo.API.Models.ModelForCreationDto.Name">

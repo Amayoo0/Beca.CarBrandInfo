@@ -27,12 +27,15 @@ namespace Beca.CarBrandInfo.API.Controllers
                 throw new ArgumentNullException(nameof(mapper));
         }
 
-
+        /// <summary>
+        /// Get all models in the repository
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ModelDto>>> GetModels(
             int brandId)
         {
-
             if (!await _brandInfoRepository.BrandExistsAsync(brandId))
             {
                 _logger.LogInformation(
@@ -45,6 +48,12 @@ namespace Beca.CarBrandInfo.API.Controllers
             return Ok(_mapper.Map<IEnumerable<ModelDto>>(modelsForBrand));
         }
 
+        /// <summary>
+        /// Get model for specific brandId
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="modelId"></param>
+        /// <returns></returns>
         [HttpGet("{modelid}", Name = "GetModel")]
         public async Task<ActionResult<ModelDto>> GetModel(
             int brandId, int modelId)
@@ -65,6 +74,12 @@ namespace Beca.CarBrandInfo.API.Controllers
             return Ok(_mapper.Map<ModelDto>(model));
         }
 
+        /// <summary>
+        /// Create a new Model of brandId
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<ModelDto>> CreateModel(
            int brandId,
@@ -94,6 +109,13 @@ namespace Beca.CarBrandInfo.API.Controllers
                  createdModelToReturn);
         }
 
+        /// <summary>
+        /// Update modelId of brandId
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="modelId"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut("{modelid}")]
         public async Task<ActionResult> UpdateModel(int brandId, int modelId,
             ModelForUpdateDto model)
@@ -117,7 +139,13 @@ namespace Beca.CarBrandInfo.API.Controllers
             return NoContent();
         }
 
-
+        /// <summary>
+        /// Update some field of Model
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="modelId"></param>
+        /// <param name="patchDocument"></param>
+        /// <returns></returns>
         [HttpPatch("{modelid}")]
         public async Task<ActionResult> PartiallyUpdateModel(
             int brandId, int modelId,
@@ -156,6 +184,12 @@ namespace Beca.CarBrandInfo.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete modelId of brandId
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="modelId"></param>
+        /// <returns></returns>
         [HttpDelete("{modelid}")]
         public async Task<ActionResult> DeleteModel(
             int brandId, int modelId)

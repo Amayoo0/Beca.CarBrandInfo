@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beca.CarBrandInfo.API", "Beca.CarBrandInfo.API\Beca.CarBrandInfo.API.csproj", "{DE75099B-E100-4CEE-AA71-2F3D7F9A2552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beca.CarBrandInfo.API", "Beca.CarBrandInfo.API\Beca.CarBrandInfo.API.csproj", "{DE75099B-E100-4CEE-AA71-2F3D7F9A2552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beca.CarBrandInfo.API.Test", "Beca.CarBrandInfo.API.Test\Beca.CarBrandInfo.API.Test.csproj", "{F9BFF05F-89EB-4574-9813-87FD9C0C1FC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DE75099B-E100-4CEE-AA71-2F3D7F9A2552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE75099B-E100-4CEE-AA71-2F3D7F9A2552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE75099B-E100-4CEE-AA71-2F3D7F9A2552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9BFF05F-89EB-4574-9813-87FD9C0C1FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BFF05F-89EB-4574-9813-87FD9C0C1FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BFF05F-89EB-4574-9813-87FD9C0C1FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BFF05F-89EB-4574-9813-87FD9C0C1FC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
